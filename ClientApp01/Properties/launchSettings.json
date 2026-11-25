@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "MessClient": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+﻿<Window x:Class="ClientApp01.Views.ContactChatPropertiesDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Contact Properties" Height="300" Width="400"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="{Binding Contact.Chat.ChatName}" FontSize="16" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Contact.Chat.ChatDescription}" Foreground="Gray" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Отображаемое имя" Margin="0,10,0,0"/>
+            <TextBox Text="{Binding FormDisplayName, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,5,0,0"/>
+
+            <TextBlock Text="Режим" Margin="0,10,0,0"/>
+            <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                <CheckBox Content="Игнорировать" 
+              IsChecked="{Binding FormIsIgnored, UpdateSourceTrigger=PropertyChanged,  Mode=TwoWay}"/>
+                <CheckBox Content="Не беспокоить" 
+              IsChecked="{Binding FormDoNotDisturb, UpdateSourceTrigger=PropertyChanged,  Mode=TwoWay}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="Очистить историю" 
+                        Command="{Binding ClearHistoryCommand}"
+                        Margin="0,0,10,0"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+            <Button Content="Отмена" 
+                        Command="{Binding CancelCommand}"
+                        Margin="0,0,10,0"
+                        Style="{StaticResource MaterialDesignFlatButton}"/>
+            <Button Content="Сохранить" 
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource MaterialDesignRaisedButton}"/>
+        </StackPanel>
+    </Grid>
+</Window>
